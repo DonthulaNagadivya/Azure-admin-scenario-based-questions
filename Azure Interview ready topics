@@ -1,0 +1,35 @@
+You mentioned provisioning Azure infrastructure with Terraform. Can you walk me through how you deployed a virtual network and a virtual machine using Terraform? What was your approach to managing state files in a team environment?
+
+In my previous project, I used Terraform to provision Azure resources like virtual machines and virtual networks. For example, I created a reusable module for VM deployment which accepted variables like VM size, admin credentials, and resource group. I used the azurerm_virtual_network, azurerm_subnet, and azurerm_windows_virtual_machine resources. To manage the Terraform state file in a team setup, I configured a remote backend using an Azure Storage Account with versioning and locking enabled. This ensured collaboration and prevented conflicts during simultaneous deployments. To handle dependencies, I let Terraform's built-in dependency management handle the order, as it automatically understands references. For example, I pass the VNet name or ID to the subnet resource using interpolation like virtual_network_name = azurerm_virtual_network.myvnet.name. This ensures the VNet is created before the subnet.
+
+You mentioned optimizing cloud performance by configuring VMs, Virtual Networks, and Load Balancers. Can you describe a specific scenario where you optimized performance using these services?
+In one of our environments, we had a multi-tier application running on Azure VMs. Performance was degrading due to high CPU usage and uneven traffic distribution. I scaled the backend VMs by upgrading the SKU from Standard B2s to D2s_v3 and placed them behind an Azure Load Balancer. I configured health probes and set up rules to distribute traffic evenly. Additionally, I configured the VM disks for better IOPS and ensured VMs were in an availability set for high availability.
+
+You've worked on NSGs, route tables, and VNET peering. Can you explain how you managed traffic control between subnets using NSGs and route tables?
+I created NSGs to control traffic at the subnet level, applying rules to allow only specific ports and IPs. For instance, we allowed only RDP/SSH from a bastion subnet and blocked internet access to internal workloads. For route control, I used custom route tables to force traffic through a firewall or NVA. In some cases, we combined NSGs and UDRs to isolate workloads and enforce security policies across environments.
+
+You migrated from Azure Update Management to Azure Update Manager. What challenges did you face, and how did you ensure a smooth transition?
+The main challenge was maintaining patch compliance without disruption. Azure Update Manager provided a more native experience without relying on Log Analytics. I first reviewed all existing schedules and groups in Update Management, then replicated them in Update Manager. I tested the patching process on non-production VMs, validated results, and coordinated with stakeholders before switching over. Communication and rollback plans were key.
+
+You've supported incident management and service restoration. How do you approach a production VM that is not responding?
+I first check the Azure Activity Logs for any recent changes, then use Boot Diagnostics and Serial Console for low-level troubleshooting. If RDP/SSH fails, I use the Run Command feature to execute scripts remotely. If the OS disk is corrupted, I detach it, mount it to a healthy VM, fix issues, and reattach it. I document each step and update the incident ticket with findings. For critical incidents, I keep stakeholders updated at regular intervals.
+
+Q: You've supported incident management and service restoration. How do you approach a production VM that is not responding?
+
+I first check the Azure Activity Logs for any recent changes, then use Boot Diagnostics and Serial Console for low-level troubleshooting. If RDP/SSH fails, I use the Run Command feature to execute scripts remotely. If the OS disk is corrupted, I detach it, mount it to a healthy VM, fix issues, and reattach it. I document each step and update the incident ticket with findings. For critical incidents, I keep stakeholders updated at regular intervals.
+
+Q: How did you onboard new resources to Azure Monitor, and what kind of reports did you prepare for stakeholders?
+I enabled Azure Monitor Agent and connected VMs to a Log Analytics Workspace. I configured data collection rules for performance counters and logs. I created alerts based on key metrics like CPU/memory usage and disk space. For reporting, I generated weekly dashboards using Azure Workbooks and provided daily incident summaries. These were shared with stakeholders via email or Teams, depending on severity.
+
+Q: You’ve mentioned creating and expanding disks. Can you walk me through the steps to expand an OS disk on a running VM in Azure?
+First, I stop the VM (if required for the SKU), then increase the disk size from the Azure Portal or using PowerShell/CLI. Once the VM is running, I log into the OS, open Disk Management (in Windows), and extend the volume to use the additional space. For Linux, I use lsblk, growpart, and resize2fs or equivalent commands. I always take a snapshot before resizing as a backup.
+
+Q: You've worked with VMware — how did you use VM templates and manage snapshots for patching or cloning?
+I created templates from clean VMs with all baseline patches and software. These templates were used to deploy new VMs rapidly. For patching, I took snapshots before applying updates to ensure rollback if needed. I regularly cleaned up old snapshots to avoid performance issues. I also used VM cloning for quick test environments or load testing scenarios.
+
+Q: You’ve worked with Microsoft Azure Backup Server. Can you explain how you performed a file-level recovery for a VM?
+
+Using MABS, I selected the appropriate recovery point from the protection group. I mounted the backup storage, browsed the file system, and restored specific files to an alternate location. In case of larger recovery, I used disk- or VM-level recovery to bring the system back to a consistent state. I ensured the retention policy was aligned with business SLAs.
+
+Q: You mentioned sharing reports and status updates. How did you keep stakeholders informed during high-priority incidents?
+I followed our incident communication protocol, sending updates every 30–60 minutes via email or Teams. I included incident ID, impact summary, steps taken, current status, and ETA. Once resolved, I conducted a post-incident review (PIR) and shared a root cause analysis report. I also maintained daily and weekly reports for transparency and proactive communication.
