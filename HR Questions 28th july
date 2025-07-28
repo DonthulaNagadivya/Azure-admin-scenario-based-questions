@@ -1,0 +1,29 @@
+🔹 Q1. Tell me about yourself and your experience as an Azure Administrator.
+I have 3.6 years of experience working as an Azure Administrator, primarily focused on managing and maintaining Azure infrastructure. My key responsibilities include provisioning virtual machines, configuring virtual networks, managing storage, automating deployments using Terraform, monitoring resources, and ensuring backup and disaster recovery readiness. I've also been actively involved in patch management and incident handling. I'm passionate about cloud technologies and continuously upskill myself to stay aligned with the evolving Azure ecosystem.
+
+🔹 Q2. Why are you looking for a new opportunity? What motivates your job change?
+I’m grateful for the learning and exposure in my current role, but I feel it’s the right time to take on new challenges that allow me to grow further—especially in areas like cloud automation, security, and DevOps integration. I’m looking for an organization where I can work on enterprise-scale infrastructure, improve my technical depth, and contribute more strategically to business outcomes. I want to be part of a team where learning is encouraged and innovation is embraced.
+
+🔹 Q3. How do you handle high-pressure situations, like production issues or tight deadlines?
+I stay calm and approach the problem with a structured mindset. In a production issue, I prioritize immediate containment and service restoration, while coordinating with relevant teams. I believe in clear communication and regular updates to stakeholders. I document actions, root cause, and preventive steps post-resolution. For deadlines, I plan in advance, break down the tasks, and communicate early if I foresee risks. I believe pressure can be managed well with teamwork and transparency.
+
+🔹 Q4. Can you describe a time you failed or made a mistake? How did you handle it?
+Once, during a patch deployment, I mistakenly scheduled updates during production hours due to a misconfigured maintenance window. I noticed the issue early, informed the stakeholders immediately, and paused the deployment. I worked with the team to minimize impact, then rescheduled properly. After the incident, I helped create a checklist and validation step in our SOPs to prevent similar issues. I believe mistakes are learning opportunities when handled responsibly.
+
+🔹 Q5. How do you prioritize tasks when you have multiple issues or requests at once?
+I prioritize based on impact and urgency — production incidents or security-related issues always come first. I use our internal ticketing system and SLAs to organize my day. For multiple ongoing tasks, I coordinate with my team or manager to set expectations and ensure high-impact issues are addressed quickly. I also document progress so nothing falls through the cracks.
+
+🔹 Q6. How do you stay updated with Azure’s new features and best practices?
+I follow Microsoft Learn, Azure blogs, and documentation regularly. I also watch webinars and join online communities and forums. I recently took a course on Terraform for Azure and practiced building environments in a sandbox. I believe continuous learning is essential in the cloud space, and I set aside time every week for upskilling.
+
+🔹 Q7. What are your long-term goals, and how does this role align with them?
+My long-term goal is to grow into a Cloud Solution Architect or Azure DevOps Engineer role, where I can design and implement cloud strategies at scale. This role will give me exposure to real-world enterprise infrastructure, automation practices, and cloud governance — all of which are key building blocks toward my future path. I’m also interested in mentoring junior team members and contributing to process improvements.
+
+🔹 Q8. How do you ensure documentation and knowledge sharing within your team?
+I make it a habit to document changes, incidents, and new setups in our internal knowledge base or SharePoint. I also share summaries during our weekly team meetings or post key updates in the team channel. I believe good documentation saves time, helps onboarding, and promotes collaboration.
+
+🔹 Q9. How do you respond to feedback, especially when it’s critical?
+I welcome feedback, especially when it helps me grow. If it’s critical, I listen calmly, try to understand the reason behind it, and take it as a chance to improve. I avoid being defensive and instead reflect on what I can change. I’ve grown the most in my career from constructive feedback and mentorship.
+
+🔹 Q10. What do you expect from your next company and team?
+I’m looking for a team that values collaboration, continuous learning, and technical excellence. I appreciate open communication, recognition for effort, and opportunities to explore new tools and projects. I’m happy to take ownership and deliver results, and in return, I value a culture that supports growth and work-life balance.
