@@ -33,3 +33,10 @@ Using MABS, I selected the appropriate recovery point from the protection group.
 
 Q: You mentioned sharing reports and status updates. How did you keep stakeholders informed during high-priority incidents?
 I followed our incident communication protocol, sending updates every 30–60 minutes via email or Teams. I included incident ID, impact summary, steps taken, current status, and ETA. Once resolved, I conducted a post-incident review (PIR) and shared a root cause analysis report. I also maintained daily and weekly reports for transparency and proactive communication.
+
+
+Imagine one of your Azure virtual machines (Windows) becomes suddenly inaccessible via RDP. What steps would you take to troubleshoot and restore access?
+First, I’ll verify the VM's power state in the Azure portal. Then, I’ll check heartbeat logs in Log Analytics to confirm if it's responsive. If there’s no heartbeat, I’ll inspect boot diagnostics and extension health. If it’s responsive but still inaccessible, I’ll validate NSG rules (especially port 3389), and use Network Watcher to trace packets. I’ll also use Serial Console or Run Command to access the VM without RDP and verify internal firewall settings. If needed, I’ll reset the RDP configuration or user credentials via portal. Lastly, I’ll review activity logs for any recent changes and inform stakeholders once access is restored.
+
+
+
