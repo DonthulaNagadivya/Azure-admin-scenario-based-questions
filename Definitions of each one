@@ -4,7 +4,7 @@ Answer: Azure Virtual Network (VNet) is the foundation of the Azure networking i
 
 2. What is a Subnet in Azure?
 
-Answer: A Subnet is a smaller partition or segment of a VNet. It helps in organizing and segmenting the resources within a VNet, which enhances security, isolation, and management of resources based on the workloads and security requirements.
+Answer: A Subnet is a smaller partition or segment of a VNet. It helps in organizing and segmenting the resources within a VNet, which enhances security, isolation, and management of resources based on the workloads and security requirements
 
 3. What is Network Security Group (NSG)?
 
