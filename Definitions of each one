@@ -1,3 +1,94 @@
+What is Azure Virtual Network?
+
+Answer: Azure Virtual Network (VNet) is the foundation of the Azure networking infrastructure. It allows you to securely connect Azure resources with each other, the internet, and on-premises networks. VNets are isolated from each other, enabling you to define network boundaries for different applications.
+
+2. What is a Subnet in Azure?
+
+Answer: A Subnet is a smaller partition or segment of a VNet. It helps in organizing and segmenting the resources within a VNet, which enhances security, isolation, and management of resources based on the workloads and security requirements.
+
+3. What is Network Security Group (NSG)?
+
+Answer: A Network Security Group (NSG) controls the inbound and outbound traffic to/from Azure resources (like VMs) at the subnet or NIC level. It contains security rules that define allowed or denied traffic based on source IP, destination IP, source port, destination port, and protocol.
+
+4. What is the difference between Horizontal and Vertical Scaling?
+
+Answer:
+
+Vertical Scaling: Increases the CPU or memory of an individual VM.
+
+Horizontal Scaling: Adds or removes instances of VMs based on demand to manage load.
+
+
+5. What are Availability Sets?
+
+Answer: Availability Sets ensure high availability by distributing VMs across multiple fault and update domains. This helps in protecting workloads from hardware failures or rack-level failures by ensuring that VMs are spread across different physical resources.
+
+6. What are Availability Zones?
+
+Answer: Availability Zones are unique physical locations within an Azure region. They provide high availability by distributing resources across multiple datacenters. If one datacenter goes down, the other zones continue running, ensuring minimal downtime.
+
+7. What is VNet Peering?
+
+Answer: VNet Peering allows communication between two VNets, either within the same region (Local VNet Peering) or across different regions (Global VNet Peering). It uses Azure’s backbone network to route traffic securely and with low latency.
+
+8. What is a VPN Gateway in Azure?
+
+Answer: A VPN Gateway establishes a secure connection between Azure and an on-premises network or other Azure VNets. It uses the public internet, providing secure communication over IPsec or IKEv2 protocols.
+
+9. What is ExpressRoute in Azure?
+
+Answer: ExpressRoute provides a private, dedicated connection between an on-premises network and Azure, bypassing the public internet. It offers higher bandwidth, lower latency, and more security than VPN connections.
+
+10. What is a Public IP Address in Azure?
+
+Answer: A Public IP address is used to access Azure resources over the internet. It can be static (fixed) or dynamic (changes when deallocated). Public IPs are assigned to resources like load balancers, VPN gateways, or VMs for internet-facing communication.
+
+11. What is the difference between Static and Dynamic IP?
+
+Answer:
+
+Static IP: Does not change even if the VM is deallocated or restarted.
+
+Dynamic IP: Changes when the VM is deallocated or restarted.
+
+
+12. What is Network Watcher in Azure?
+
+Answer: Network Watcher is a diagnostic tool that helps monitor and analyze network traffic in Azure. It offers features like IP Flow Verify, Effective Security Rules, and Route Table diagnostics to ensure proper network configuration and troubleshoot issues.
+
+13. What is Route Table in Azure?
+
+Answer: A Route Table defines the routing rules for outbound traffic from subnets in a VNet. It includes user-defined routes (UDRs) that specify the next hop based on destination IPs, such as routing traffic through a VPN gateway or a virtual appliance.
+
+14. What is the difference between System Routes and User-Defined Routes?
+
+Answer:
+
+System Routes: These are the default routes automatically created by Azure, like routing traffic between subnets or to the internet.
+
+User-Defined Routes (UDR): Custom routes created by users to override the default system routes, such as directing traffic through specific appliances or VNets.
+
+
+15. What is an Azure Firewall?
+
+Answer: Azure Firewall is a fully managed, cloud-native network security service that provides filtering and protection for Azure VNets. It can filter traffic based on application rules, network rules, and NAT rules. It also offers threat intelligence and advanced logging.
+
+16. What is a Network Virtual Appliance (NVA)?
+
+Answer: A Network Virtual Appliance is a VM that acts as a network or security appliance (like a firewall or router). It inspects, controls, and routes traffic between subnets, VNets, or on-premises networks based on configured rules.
+
+17. What is Azure DNS and how is it used in a virtual network setup?
+
+Answer: Azure DNS is a domain name system service that resolves domain names to IP addresses within Azure. In a virtual network setup, Azure DNS helps resolve names for resources, and custom DNS servers can be configured if needed.
+
+18. What is BGP and how does it work in Azure?
+
+Answer: BGP (Border Gateway Protocol) is a routing protocol used to exchange routing information between networks. In Azure, BGP is used with VPN Gateway and ExpressRoute to dynamically exchange routes and manage failover for on-premises and cloud connectivity.
+
+19. What is Azure Bastion?
+
+Answer: Azure Bastion is a fully managed service that provides secure RDP/SSH access to VMs without exposing them to the public internet. It allows access directly through the Azure portal and enhances security by not requiring a public IP on the VMs.
+
 🔹 Virtual Network (VNet) is the basic and most important part of Azure networking. It is a private network inside Azure. It helps different Azure resources like Virtual Machines, Storage Accounts, Load Balancers, and others to talk to each other, to the internet, and to on-premises networks.
 
 VNet gives security, isolation, and scalability. While creating a VNet, we need to give an address range using CIDR format (like 10.0.0.0/16). This tells Azure how many IPs we want to use inside that network.
