@@ -1,0 +1,57 @@
+You’ve mentioned experience with NSGs and route tables. Can you explain how they differ and when you’ve used them together?
+
+Yes, I have hands-on experience working with both Network Security Groups (NSGs) and Route Tables (UDRs) in Azure.
+
+NSGs are used to control inbound and outbound traffic to and from Azure resources. They work based on rules defined by source/destination IP addresses, port numbers, and protocols (TCP/UDP). NSGs can be associated at the subnet level for broad control, or at the NIC level for granular resource-level filtering.
+
+Each NSG rule has a priority number — the lower the number, the higher the priority. For example, in a web tier subnet, I allow inbound HTTPS traffic (TCP 443) to enable secure web access. For Linux VMs, I allow SSH on TCP port 22. For DB subnets, I allow SQL traffic on port 1433.
+
+I've also used NSGs to block internet access by creating a deny rule for outbound traffic to 0.0.0.0/0, which helps secure critical workloads like databases.
+
+On the other hand, Route Tables are used to control the path that network traffic takes. Based on the destination IP, a route defines the next hop — such as the Internet, Virtual Appliance, VPN Gateway, or none.
+
+In our environment, we've implemented custom UDRs to force traffic through a FortiGate firewall (NVA) for deep inspection. So, for example, when traffic originates from a subnet, it first hits the route table, which redirects it to the FortiGate. Only after inspection is it allowed to reach the final destination — like another subnet or the internet.
+
+This layered approach using NSGs for access control and Route Tables for traffic flow direction ensures we maintain both isolation and inspection, which are critical for a secure Azure network design.
+
+
+
+Can you walk me through how you would design and deploy a secure Virtual Network in Azure from scratch for a multi-tier application?
+
+To design and deploy a secure Virtual Network in Azure for a multi-tier application, I begin by creating a VNet with an address space, typically using CIDR notation (e.g., 10.0.0.0/16).
+
+I then create subnets to segment the workloads:
+
+Web Subnet (e.g., 10.0.1.0/24)
+
+App Subnet (e.g., 10.0.2.0/24)
+
+DB Subnet (e.g., 10.0.3.0/24)
+
+Each subnet is isolated to improve security and traffic control. I apply Network Security Groups (NSGs) at the subnet level (or NIC level if needed) to control inbound and outbound access. For example, the DB subnet only allows traffic from the App subnet on specific ports.
+
+To manage routing efficiently, I use User Defined Routes (UDRs) — especially if traffic needs to pass through a firewall or NVA for inspection.
+
+For secure administrative access, I configure Azure Bastion, avoiding public IP exposure on VMs.
+
+If multiple VNets are involved — such as in a hub-spoke architecture — I implement VNet Peering with proper configuration of gateway transit and routing.
+
+Additionally, I integrate Private Endpoints to securely access PaaS services (like Azure Storage or SQL) within the VNet, along with Private DNS Zones for name resolution.
+
+Overall, my approach ensures network segmentation, minimal exposure, secure access, and traffic control — which are key principles for deploying secure cloud networks.
+
+
+ Suppose your VM in a subnet is not able to connect to the internet. How would you troubleshoot this?
+1. Check NSG (Network Security Group) Rules:
+I first verify the outbound rules in the NSG associated with the VM's subnet or NIC. Specifically, I ensure that ports 80 (HTTP) and 443 (HTTPS) are allowed, and there are no deny rules blocking outbound internet traffic.
+
+2. Inspect Route Table (UDR):
+If the NSG looks fine, I check if the subnet has any User Defined Routes (UDRs). Misconfigured routes, such as sending 0.0.0.0/0 traffic to a non-existent or incorrect next hop, can break internet connectivity. I validate that the route table either has the default internet route or correctly forwards traffic via a NAT gateway if needed.
+
+3. Check for NAT Gateway or Public IP:
+If the subnet doesn’t have a Public IP or isn’t using a NAT Gateway, the VM won’t be able to reach the internet. I confirm whether a NAT gateway is attached to the subnet, especially in scenarios where the subnet is in a private configuration.
+
+4. DNS Resolution Issues:
+Finally, I verify if there are DNS issues — such as custom DNS settings in the VNet that might be misconfigured. I test basic DNS resolution (e.g., nslookup) from the VM to check if it can resolve external domain names.
+
+This step-by-step approach helps isolate where the issue lies — whether it’s security, routing, IP configuration, or name resolution.
