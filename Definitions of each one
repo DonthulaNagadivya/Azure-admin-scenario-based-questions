@@ -1,0 +1,59 @@
+🔹 Virtual Network (VNet) is the basic and most important part of Azure networking. It is a private network inside Azure. It helps different Azure resources like Virtual Machines, Storage Accounts, Load Balancers, and others to talk to each other, to the internet, and to on-premises networks.
+
+VNet gives security, isolation, and scalability. While creating a VNet, we need to give an address range using CIDR format (like 10.0.0.0/16). This tells Azure how many IPs we want to use inside that network.
+
+🔹Inside a VNet, we must create at least one subnet. A subnet is like a small part or section of the VNet. We use subnets to separate resources based on their function — like web, app, or database — or based on security needs. Subnets help to organize and secure the environment better.
+
+🔹We can also attach Network Security Groups (NSGs) and Route Tables to the subnet or even directly to the Virtual Machine’s network card (NIC).
+
+🔹NSG is used to allow or block network traffic. It works using rules that check source IP, destination IP, port numbers, and protocols (like TCP/UDP). Each rule has a priority number, and the rule with the lowest number gets applied first. For example, I allow port 80 or 443 for web access or block all outbound internet traffic from a subnet.
+
+🔹Route Tables are used to control where traffic should go. We create custom routes to send traffic to firewalls like FortiGate or Network Virtual Appliances (NVAs) before it reaches its destination. This is useful for monitoring or filtering the traffic.
+
+🔹Azure Bastion helps to securely connect to VMs using RDP or SSH through the Azure Portal, without giving them a public IP. It uses port 443 (TLS/SSL), so it’s secure and avoids direct exposure to the internet.
+
+🔹Load Balancer
+Azure Load Balancer works at Layer 4, which is the transport layer. It helps to distribute TCP or UDP traffic across backend virtual machines or services to improve availability and performance.
+
+There are two types:
+
+Internal Load Balancer, which is used for private traffic inside a VNet.
+
+Public (Internet-facing) Load Balancer, which is used when we want to allow traffic from the internet to Azure resources, like a web server.
+
+It checks health probes to see which backend VM is healthy before sending traffic.
+
+🔹 Application Gateway
+Azure Application Gateway works at Layer 7, which is the application layer.
+
+It supports URL-based routing — for example, traffic to /images can go to one server and /videos to another.
+
+It also supports SSL termination, which means it handles encryption/decryption at the gateway level, and it has a Web Application Firewall (WAF) to protect against attacks like SQL injection or cross-site scripting.
+
+🔹 Azure Firewall
+Azure Firewall is a stateful firewall that we can use to control inbound and outbound traffic from a central place.
+
+It is highly available, can scale automatically, and supports threat intelligence to block known bad IPs or domains.
+
+It’s commonly used in hub-and-spoke architectures, where all traffic flows through a central hub with the firewall for inspection.
+
+🔹 VPN Gateway
+Azure VPN Gateway is used to connect Azure to on-premises networks using Site-to-Site VPN, Point-to-Site VPN, or VNet-to-VNet connections.
+
+It uses IPsec/IKE protocols to provide secure and encrypted communication.
+
+This is helpful when we need a hybrid setup between cloud and on-prem infrastructure.
+
+🔹 ExpressRoute
+ExpressRoute gives a private, dedicated connection between on-premises networks and Azure — it doesn’t go through the public internet.
+
+It provides higher security, better reliability, more bandwidth, and lower latency.
+
+It's mostly used by large organizations for critical workloads and secure hybrid environments.
+
+🔹 Private Endpoint / Private Link
+A Private Endpoint assigns a private IP from your VNet to a PaaS service like Azure Storage or SQL.
+
+This means the resource can be accessed privately within your network, and the traffic stays on the Microsoft backbone, not the public internet.
+
+It improves security by keeping the service hidden from the outside world.
