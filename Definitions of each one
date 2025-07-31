@@ -10,6 +10,10 @@ Answer: A Subnet is a smaller partition or segment of a VNet. It helps in organi
 
 Answer: A Network Security Group (NSG) controls the inbound and outbound traffic to/from Azure resources (like VMs) at the subnet or NIC level. It contains security rules that define allowed or denied traffic based on source IP, destination IP, source port, destination port, and protocol.
 
+4. Application Security Group (ASG) is a feature in Azure that helps us group virtual machines logically based on their role or application tier — like web servers, app servers, or database servers.
+
+Instead of writing NSG rules for each VM separately, we can create an ASG, add the related VMs into it, and then write NSG rules for the entire group. This makes managing network security rules much easier and more organized.
+
 4. What is the difference between Horizontal and Vertical Scaling?
 
 Answer:
