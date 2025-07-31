@@ -93,6 +93,24 @@ Answer: BGP (Border Gateway Protocol) is a routing protocol used to exchange rou
 
 Answer: Azure Bastion is a fully managed service that provides secure RDP/SSH access to VMs without exposing them to the public internet. It allows access directly through the Azure portal and enhances security by not requiring a public IP on the VMs.
 
+20.Azure Load Balancer is used to distribute incoming traffic across multiple virtual machines that are placed in a backend pool. This helps to improve availability, scalability, and fault tolerance of applications.
+It uses something called health probes to continuously monitor the health of backend VMs. If one VM goes down or becomes unhealthy, the load balancer automatically stops sending traffic to that VM and sends it only to the healthy ones.
+Operates at Layer 4 (Transport Layer) — TCP and UDP protocols
+Supports both Internal and Public Load Balancer
+Internal Load Balancer for internal app tiers (e.g., app → DB)
+Public Load Balancer for internet-facing apps (e.g., web apps)
+21. Application Gateway is a Layer 7 (Application Layer) load balancer in Azure.
+It distributes web traffic based on rules like URL paths or domains — for example, it can route /images to one backend and /videos to another.
+It supports:
+URL-based routing (also called path-based routing)
+SSL offloading (removes the SSL processing burden from backend VMs)
+End-to-end SSL encryption, if needed
+Web Application Firewall (WAF) to protect against common web attacks like SQL injection, cross-site scripting (XSS), etc.
+It's ideal for hosting websites, web apps, and APIs with different security and routing needs.
+22.NAT Gateway in Azure is used for Network Address Translation (NAT).
+It allows virtual machines in a private subnet to access the internet using one or a few public IP addresses, without exposing the VMs directly to the internet.
+This way, VMs don’t need individual public IPs, and traffic from them appears to come from the NAT Gateway’s public IP, improving security and management.
+
 🔹 Virtual Network (VNet) is the basic and most important part of Azure networking. It is a private network inside Azure. It helps different Azure resources like Virtual Machines, Storage Accounts, Load Balancers, and others to talk to each other, to the internet, and to on-premises networks.
 
 VNet gives security, isolation, and scalability. While creating a VNet, we need to give an address range using CIDR format (like 10.0.0.0/16). This tells Azure how many IPs we want to use inside that network.
