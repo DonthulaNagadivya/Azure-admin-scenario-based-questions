@@ -27,3 +27,10 @@ I welcome feedback, especially when it helps me grow. If it’s critical, I list
 
 🔹 Q10. What do you expect from your next company and team?
 I’m looking for a team that values collaboration, continuous learning, and technical excellence. I appreciate open communication, recognition for effort, and opportunities to explore new tools and projects. I’m happy to take ownership and deliver results, and in return, I value a culture that supports growth and work-life balance.
+🔹Q11. Tell me about a time you went beyond your regular responsibilities?
+Apart from my regular responsibilities like cost optimization and monitoring, I proactively got involved in patch management as well. There was a situation when our patching specialist was unavailable, and a customer raised a query expecting specific results from a patch deployment.
+
+I took the initiative to analyze the issue, clarify the customer’s concerns, and provide them with the exact information they needed. My proactive approach was noticed by our tech lead, who then gave me the opportunity to get more involved in patching activities.
+
+That led to a major task where I migrated all our virtual machines from Azure Update Management to Azure Update Manager. This helped us automate the patching process further, reducing manual efforts by around 70–80%.
+2. CMDB management also taken care by me
