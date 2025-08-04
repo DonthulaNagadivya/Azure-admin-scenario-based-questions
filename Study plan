@@ -1,0 +1,141 @@
+
+✅ Master Learning Sequence (Topic-by-Topic Order)
+🔹 1. Linux (Basic → Admin Level)
+What is Linux? File system hierarchy
+
+Basic Linux commands (ls, cd, pwd, mkdir, rm, cat, touch)
+
+File and directory permissions (chmod, chown, umask)
+
+User and group management (useradd, usermod, passwd, groups)
+
+File compression and archiving (tar, gzip, zip)
+
+Searching & filtering (grep, find, cut, awk, sed)
+
+System services (systemctl, service, journalctl)
+
+Scheduled jobs (crontab, at)
+
+Resource monitoring (top, ps, df, du, free)
+
+Log management and troubleshooting (/var/log, journalctl)
+
+🔹 2. Shell Scripting
+What is shell scripting? Structure of a shell script
+
+Variables and data types
+
+Conditional statements (if, elif, else)
+
+Loops (for, while, until)
+
+Functions and exit status
+
+Arrays and string operations
+
+Input/output redirection
+
+Script automation use cases (backup, log cleanup, alerts)
+
+Shell script + Azure CLI integration
+
+Writing a complete automation script (E.g., automate VM provisioning)
+
+🔹 3. Git & GitHub (Source Control)
+Git basics (init, clone, add, commit)
+
+Branching and merging
+
+Pull requests and collaboration
+
+Resolving merge conflicts
+
+GitHub workflow basics
+
+Using Git in CI/CD (Git → DevOps pipeline trigger)
+
+🔹 4. Azure (Admin to DevOps Focused)
+Azure global structure: tenants, subscriptions, resource groups
+
+Identity & Access Management (IAM, RBAC, custom roles)
+
+Virtual machines (creation, disks, extensions, backup)
+
+Virtual networks, NSGs, public IPs, DNS
+
+Storage accounts (blob, file, lifecycle policies)
+
+Azure CLI & PowerShell basics
+
+Azure Resource Manager (ARM) overview
+
+Azure DevOps Services – Boards, Repos, Pipelines
+
+Azure Monitor, Log Analytics Workspace, Alerts
+
+Cost management (budgets, cost analysis, tagging)
+
+🔹 5. Terraform (IaC for Azure)
+What is Terraform? Installation and basic workflow
+
+Provider, resource, and variable blocks
+
+init, plan, apply, destroy, and state files
+
+Input/output variables and locals
+
+Using tfvars files
+
+Modules and remote backends
+
+Deploying Azure resources (RG, VM, VNet, NSG)
+
+Terraform in CI/CD pipeline (Azure DevOps)
+
+State locking and remote storage (e.g., Azure Blob)
+
+Real-world infrastructure project using Terraform
+
+🔹 6. CI/CD & DevOps Tools
+Azure DevOps Pipelines – classic vs YAML
+
+Build pipeline basics (trigger, agent, steps)
+
+Release pipelines & deployment stages
+
+Pipeline variables, approvals, environments
+
+Integrating GitHub with Azure DevOps
+
+Artifact storage and publishing
+
+Automating Terraform through pipelines
+
+Application deployment pipeline (e.g., web app to Azure VM/App Service)
+
+🔹 7. Monitoring, Logging, & Cost Optimization
+Azure Monitor & Metrics
+
+Log Analytics Workspace + KQL basics
+
+Alert rules and action groups
+
+Diagnostics settings and VM insights
+
+Cost analysis + budgets
+
+Unused resources identification (unattached disks, public IPs, NICs)
+
+🔹 8. English & Communication Skills
+Speak technical concepts simply (mirror practice)
+
+STAR method: Situation, Task, Action, Result
+
+Common DevOps interview questions (prepare 1 daily)
+
+Explain real-time issues you solved
+
+Write 2–3 line answers for “Tell me about a time...” scenarios
+
+Record and self-review explanations
